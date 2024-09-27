@@ -27,17 +27,30 @@ public class Spirit : MonoBehaviour
             _delayTimer -= Time.deltaTime;
         }
 
-        while (Input.GetButtonDown("Scream!") && curSpirt > 0 && _delayTimer <=0)
+        if (Input.GetButtonDown("Scream!") && curSpirt > 0)
         {
-            _delayTimer = 0.5f;
-            usingSpirit(10);
-            Debug.Log("Is repecting"); 
+            StartCoroutine(ScreamingRoutine());
+            
         }
     }
 
     public void usingSpirit(int sp)
     {
         curSpirt -= sp;
+        spiritMeter.SetSpirit(curSpirt);
+    }
+
+    IEnumerator ScreamingRoutine()
+    {
+        usingSpirit(10);
+        yield return new WaitForSeconds(0.1f);
+        usingSpirit(10);
+        Debug.Log("Is repecting");
+    }
+
+    public void PickupPower()
+    {
+        curSpirt = maxSpirt;
         spiritMeter.SetSpirit(curSpirt);
     }
 }

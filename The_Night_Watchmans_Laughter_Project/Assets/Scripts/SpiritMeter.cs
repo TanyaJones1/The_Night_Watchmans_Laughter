@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpiritMeter : MonoBehaviour
 {
-    public Slider spiritMeter;
+    public Slider spiritMeterUI;
     public Spirit playerSpirit;
         
     // Start is called before the first frame update
@@ -13,14 +13,14 @@ public class SpiritMeter : MonoBehaviour
     {
 
         playerSpirit = GameObject.FindGameObjectWithTag("Player").GetComponent<Spirit>(); 
-        spiritMeter = GetComponent<Slider>();
-        spiritMeter.maxValue = playerSpirit.maxSpirt;
-        spiritMeter.value = playerSpirit.maxSpirt; 
+        spiritMeterUI = GetComponent<Slider>();
+        spiritMeterUI.maxValue = playerSpirit.maxSpirt;
+        spiritMeterUI.value = playerSpirit.maxSpirt; 
     }
 
    
     public void SetSpirit(int SP)
     {
-        spiritMeter.value = SP; 
+        spiritMeterUI.value = SP; 
     }   
 }

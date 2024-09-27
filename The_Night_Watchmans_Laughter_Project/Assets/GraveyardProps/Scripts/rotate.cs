@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class rotate : MonoBehaviour {
-
+	[SerializeField] private float rotationSpeed = 0.001f;
     private float y = 0.0f;
 
 	// Use this for initialization
@@ -14,7 +14,7 @@ public class rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.localRotation = Quaternion.Euler(0, y, 0);
-        y += 0.1f;
+        y += rotationSpeed;
         
 
     }
